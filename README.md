@@ -7,7 +7,7 @@
 You get a simple, almost-empty (except for the Glitch button) full-page p5 canvas thanks to
 `index.html` and `style.css`.
 
-`ketch.js` is where you put your p5.js code. As a demo, all it does is draw a circle in the
+`sketch.js` is where you put your p5.js code. As a demo, all it does is draw a circle in the
 middle of the screen. The p5 world is your oyster!
 
 ## How do I start?
