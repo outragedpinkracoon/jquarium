@@ -1,37 +1,19 @@
-Welcome to Glitch
-=================
+# p5-base-project
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+`p5-base-project` aims to be the minimal remixable project to get you up and running with p5.js.
 
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+## What's included?
 
-Find out more [about Glitch](https://glitch.com/about).
+You get a simple, almost-empty (except for the Glitch button) full-page p5 canvas thanks to
+`index.html` and `style.css`.
 
+`ketch.js` is where you put your p5.js code. As a demo, all it does is draw a circle in the
+middle of the screen. The p5 world is your oyster!
 
-Your Project
-------------
+## How do I start?
 
-### ← README.md
+Make changes to `sketch.js`. There are stubs for `setup()` and `draw()`
+there ready for you.
 
-That's this file, where you can tell people what your cool website does and how you built it.
-
-### ← index.html
-
-Where you'll write the content of your website. 
-
-### ← style.css
-
-CSS files add styling rules to your content.
-
-### ← script.js
-
-If you're feeling fancy you can add interactivity to your site with JavaScript.
-
-### ← assets
-
-Drag in `assets`, like images or music, to add them to your project
-
-Made by [Fog Creek](https://fogcreek.com/)
--------------------
-
-\ ゜o゜)ノ
+If you want more [p5 libraries](https://p5js.org/libraries/), go ahead and add
+a line for them in `index.html`.

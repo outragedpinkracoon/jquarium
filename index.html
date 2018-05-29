@@ -1,27 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <title>Hello!</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
-    
-    <!-- import the webpage's javascript file -->
-    <script src="/script.js" defer></script>
-  </head>  
-  <body>
-    <h1>Hi there!</h1>
-    
-    <p>
-      I'm your cool new webpage. Made with <a href="https://glitch.com">Glitch</a>!
-    </p>
+    <title>p5 Base Project</title>
+    <meta name="description" content="p5 Base Project - Description">
 
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    
+    <!-- p5 libraries (CDN URLs from https://p5js.org/get-started/) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
+    
+    <!-- Your project's custom code -->
+    <script src="/sketch.js"></script>     
+  </head>
+  <body>
+
+    <!-- Keep the Glitch share / remix button in the top right to be nice -->
     <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
     <script src="https://button.glitch.me/button.js"></script>
+
   </body>
 </html>

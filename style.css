@@ -1,11 +1,6 @@
-/* CSS files add styling rules to your content */
-
-body {
-  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
-  margin: 2em;
-}
-
-h1 {
-  font-style: italic;
-  color: #373fff;
+/* This is here to give you a nice full-screen area to play with */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
 }
