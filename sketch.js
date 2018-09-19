@@ -19,25 +19,29 @@
  */
 
 const FRAMERATE = 30
-const FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_left.png?1537361637478'
-const FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_right.png?1537361637621'
-let imgLeft
-let imgRight
+const SPIKEY_FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_left.png?1537361637478'
+const SPIKEY_FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_right.png?1537361637621'
+const BLOOP_FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fbloop_fish_left.png?1537365255906'
+const BLOOP_FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fbloop_fish_right.png?1537365253392'
+
+let spikeyFishImgLeft
+let spikeyFishImgRight
+let bloopFishImgLeft
+let bloopFishImgRight
+
 let fishies
 
 class Fish {
-  constructor({label, imageFacing, labelXOffset, labelYOffset}) {
+  constructor({label, fishType}) {
     this.location = { x: Math.random(), y: Math.random() }
     this.speed = 15 + (Math.random() * 15)
     this.currentShoop = null
     this.label = label
 
-    if(imageFacing === 'left' || !imageFacing) {
-      this.img = imgLeft
-    }
-    else if(imageFacing === 'right') {
-      this.img = imgRight
-    }
+    if(fishType === 'bloop') {
+      this.img = bloop
+      }
+    this.img = spikeyFishImgLeft
     this.labelOffsets = {
       x: 68,
       y: 55
@@ -88,13 +92,13 @@ class Fish {
     if (this.currentShoop.x > this.location.x) {
       if(this.direction != 'right') {
         this.direction = 'right'
-        this.img = imgRight
+        this.img = spikeyFishImgRight
       }
     }
     else {
       if(this.direction != 'left') {
         this.direction = 'left'
-        this.img = imgLeft
+        this.img = spikeyFishImgLeft
       }
     }
     
@@ -117,13 +121,15 @@ function setup() {
     new Fish({label: '.first()'}),
     new Fish({label: '.parent()'}),
     new Fish({label: '.remove()'}),
-    new Fish({label: '.ready()'}),
+    new Fish({label: '.ready()', fishType: 'bloop'}),
   ]
 }
 
 function preload() {
-  imgLeft = loadImage(FISH_IMG_LEFT)
-  imgRight = loadImage(FISH_IMG_RIGHT)
+  spikeyFishImgLeft = loadImage(SPIKEY_FISH_IMG_LEFT)
+  spikeyFishImgRight = loadImage(SPIKEY_FISH_IMG_RIGHT)
+  bloopFishImgLeft = loadImage(BLOOP_FISH_IMG_LEFT)
+  bloopFishImgRight = loadImage(SPIKEY_FISH_IMG_RIGHT)
 }
 
 function draw() {
