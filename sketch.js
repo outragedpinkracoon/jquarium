@@ -12,13 +12,13 @@
   windowHeight,
   frameRate,
   loadImage,
-  image
-  text
+  image,
+  text,
   textSize
  */
 
 const FRAMERATE = 30
-const FISH_IMG = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_append.png?1537357613225'
+const FISH_IMG = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_append.png?1537358980574'
 let img;
 
 class Fish {
@@ -71,16 +71,16 @@ class Fish {
 }
 
 const fishies = [
-  new Fish('.append()'),
-  new Fish('.children()'),
-  new Fish('.first()'),
+  new Fish({label: '.append()'}),
+  new Fish({label: '.children()'}),
+  new Fish({label: '.first()'}),
 ]
 
 function setup() {
   frameRate(FRAMERATE)
   createCanvas(windowWidth, windowHeight)
   img = loadImage(FISH_IMG)
-  textSize(18);
+  textSize(18)
 }
 
 function draw() {
