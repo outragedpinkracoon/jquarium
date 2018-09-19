@@ -14,6 +14,7 @@
   loadImage,
   image
   text
+  textSize
  */
 
 const FRAMERATE = 30
@@ -33,7 +34,7 @@ class Fish {
     const windowX = x * windowWidth
     const windowY = y * windowHeight
     image(img, windowX, windowY)
-    text("ichi", x, 80);
+    text('append()', windowX + 120, windowY + 50);
   }
   
   update() {
@@ -76,6 +77,7 @@ function setup() {
   frameRate(FRAMERATE)
   createCanvas(windowWidth, windowHeight)
   img = loadImage(FISH_IMG)
+  textSize(14);
 }
 
 function draw() {
