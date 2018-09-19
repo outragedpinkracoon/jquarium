@@ -26,14 +26,18 @@ let imgRight
 let fishies
 
 class Fish {
-  constructor({label}) {
+  constructor({label, imageFacing, labelXOffset, labelYOffset}) {
     this.location = { x: Math.random(), y: Math.random() }
     this.speed = 15 + (Math.random() * 15)
     this.currentShoop = null
     this.label = label
-    this.direction = null
-    this.img = imgLeft
-    
+
+    if(imageFacing === 'left' || !imageFacing) {
+      this.img = imgLeft
+    }
+    else if(imageFacing === 'right') {
+      this.img = imgRight
+    }
     this.labelOffsets = {
       x: 68,
       y: 55
@@ -88,7 +92,7 @@ class Fish {
       }
     }
     else {
-      if(this.direction != 'right') {
+      if(this.direction != 'left') {
         this.direction = 'left'
         this.img = imgLeft
       }
