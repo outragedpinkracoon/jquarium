@@ -12,6 +12,16 @@
   windowHeight,
  */
 
+class Fish {
+  constructor() {
+    this.location = { x: Math.random(), y: Math.random() }
+  }
+  
+  draw() {
+    ellipse(
+  }
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight)
 }
@@ -22,7 +32,11 @@ function windowResized() {
 
 function draw() {
   // Stub - draw a circle in the middle of the screen
-  background('#fff')
+  drawBackground()
   ellipse(windowWidth / 2, windowHeight / 2, 100, 100)
   line(0, windowHeight / 2, windowWidth, windowHeight / 2)
+}
+
+function drawBackground() {
+  background('#7BBBDD')
 }
