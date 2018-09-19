@@ -21,13 +21,17 @@
 const FRAMERATE = 30
 const SPIKEY_FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fspikey_fish_left.png?1537366510608'
 const SPIKEY_FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fspikey_fish_right.png?1537366509017'
+
 const BLOOP_FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fbloop_fish_left.png?1537367764866'
 const BLOOP_FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fbloop_fish_right.png?1537367762540'
+
+const FISH_HOUSE = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_house.png?1537369148941'
 
 let spikeyFishImgLeft
 let spikeyFishImgRight
 let bloopFishImgLeft
 let bloopFishImgRight
+let fishHouse
 
 let fishies
 
@@ -146,6 +150,7 @@ function setup() {
     new Fish({label: '.remove()'}),
     new Fish({label: '.ready()', fishType: 'bloop'}),
   ]
+  image(fishHouse, 200,500)
 }
 
 function preload() {
@@ -153,6 +158,8 @@ function preload() {
   spikeyFishImgRight = loadImage(SPIKEY_FISH_IMG_RIGHT)
   bloopFishImgLeft = loadImage(BLOOP_FISH_IMG_LEFT)
   bloopFishImgRight = loadImage(BLOOP_FISH_IMG_RIGHT)
+  
+  fishHouse = loadImage(FISH_HOUSE)
 }
 
 function draw() {
