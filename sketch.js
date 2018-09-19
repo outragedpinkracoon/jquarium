@@ -19,10 +19,10 @@
  */
 
 const FRAMERATE = 30
-const SPIKEY_FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_left.png?1537361637478'
-const SPIKEY_FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_right.png?1537361637621'
-const BLOOP_FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fbloop_fish_left.png?1537365255906'
-const BLOOP_FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fbloop_fish_right.png?1537365253392'
+const SPIKEY_FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fspikey_fish_left.png?1537366510608'
+const SPIKEY_FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fspikey_fish_right.png?1537366509017'
+const BLOOP_FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fbloop_fish_left1.png?1537366744533'
+const BLOOP_FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fbloop_fish_right1.png?1537366742513'
 
 let spikeyFishImgLeft
 let spikeyFishImgRight
@@ -49,8 +49,8 @@ class Fish {
     //lol...
     if(this.fishType === 'bloop') {
       this.labelOffsets = {
-        x: 30,
-        y: 70
+        x: 26,
+        y: 67
       }
     }
     else if (this.fishType === 'spikey') {
