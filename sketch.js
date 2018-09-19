@@ -13,25 +13,27 @@
   frameRate,
   loadImage,
   image
+  text
  */
 
 const FRAMERATE = 30
 const FISH_IMG = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_append.png?1537354892527'
+let img;
 
 class Fish {
   constructor() {
     this.location = { x: Math.random(), y: Math.random() }
-    this.size = 10 + (Math.random() * 60)
     this.speed = 15 + (Math.random() * 15)
     this.currentShoop = null
+    this.img = img
   }
   
   draw() {
     const { x, y } = this.location
     const windowX = x * windowWidth
     const windowY = y * windowHeight
-    image(this.fishy, windowX, windowY, this.size, this.size)
-    ellipse(windowX, windowY, this.size, this.size)
+    image(img, windowX, windowY)
+    text("ichi", x, 80);
   }
   
   update() {
@@ -73,6 +75,7 @@ const fishies = [
 function setup() {
   frameRate(FRAMERATE)
   createCanvas(windowWidth, windowHeight)
+  img = loadImage(FISH_IMG)
 }
 
 function draw() {
