@@ -22,12 +22,16 @@ const FISH_IMG = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2F
 let img;
 
 class Fish {
-  constructor({label}) {
+  constructor({label, labelXOffset, labelYOffset}) {
     this.location = { x: Math.random(), y: Math.random() }
     this.speed = 15 + (Math.random() * 15)
     this.currentShoop = null
     this.img = img
-    this.text = label
+    this.label = label
+    this.labelOffsets = {
+      x: labelXOffset,
+      y: labelYOffset
+    }
   }
   
   draw() {
@@ -35,9 +39,7 @@ class Fish {
     const windowX = x * windowWidth
     const windowY = y * windowHeight
     image(img, windowX, windowY)
-    const moveRightBy = 80
-    const moveUpBy = 55
-    text(this.text, windowX + moveRightBy, windowY + moveUpBy);
+    text(this.label, windowX + this.labelOffsets.x, windowY + this.labelOffsets.y);
   }
   
   update() {
@@ -54,26 +56,33 @@ class Fish {
     }
     const windowXMe = this.location.x * windowWidth
     const windowYMe = this.location.y * windowHeight
+    
     const windowXShoop = this.currentShoop.x * windowWidth
     const windowYShoop = this.currentShoop.y * windowHeight
+    
     const delta = { x: windowXShoop - windowXMe, y: windowYShoop - windowYMe }
     const dist = Math.sqrt(Math.pow(delta.x, 2) + Math.pow(delta.y, 2))
     const deltaNorm = { x: delta.x / dist, y: delta.y / dist }
+    
     const frameSpeed = this.speed / FRAMERATE
+    
     const distToMove = Math.min(dist, frameSpeed)
+    
     const reachesTarget = frameSpeed >= dist
+    
     this.location = {
       x: this.location.x + ((deltaNorm.x * distToMove) / windowWidth),
       y: this.location.y + ((deltaNorm.y * distToMove) / windowHeight),
     }
+    
     if (reachesTarget) { this.currentShoop = null }
   }
 }
 
 const fishies = [
-  new Fish({label: '.append()', labelXOffset: 80, labelYOffset: 55}),
-  new Fish({label: '.children()'}),
-  new Fish({label: '.first()'}),
+  new Fish({label: '.append()', labelXOffset: 68, labelYOffset: 55}),
+  new Fish({label: '.children()', labelXOffset: 68, labelYOffset: 55}),
+  new Fish({label: '.first()', labelXOffset: 85, labelYOffset: 55}),
 ]
 
 function setup() {
