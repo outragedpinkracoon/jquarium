@@ -21,8 +21,8 @@
 const FRAMERATE = 30
 const SPIKEY_FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fspikey_fish_left.png?1537366510608'
 const SPIKEY_FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fspikey_fish_right.png?1537366509017'
-const BLOOP_FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fbloop_fish_left1.png?1537367203703'
-const BLOOP_FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fbloop_fish_right1.png?1537367201601'
+const BLOOP_FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fbloop_fish_left.png?1537367764866'
+const BLOOP_FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fbloop_fish_right.png?1537367762540'
 
 let spikeyFishImgLeft
 let spikeyFishImgRight
