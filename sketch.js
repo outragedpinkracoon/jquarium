@@ -21,14 +21,22 @@
 const FRAMERATE = 30
 const FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_left.png?1537361637478'
 const FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_right.png?1537361637621'
-let img;
+let imgLeft
+let imgRight
+let fishies
 
 class Fish {
-  constructor({label, labelXOffset, labelYOffset}) {
+  constructor({label, imageFacing, labelXOffset, labelYOffset}) {
     this.location = { x: Math.random(), y: Math.random() }
     this.speed = 15 + (Math.random() * 15)
     this.currentShoop = null
     this.label = label
+    if(imageFacing === 'left' || !imageFacing) {
+      this.img = imgLeft
+    }
+    else if(imageFacing === 'right') {
+      this.img = imgRight
+    }
     this.labelOffsets = {
       x: 68,
       y: 55
@@ -39,7 +47,7 @@ class Fish {
     const { x, y } = this.location
     const windowX = x * windowWidth
     const windowY = y * windowHeight
-    image(img, windowX, windowY)
+    image(this.img, windowX, windowY)
     text(this.label, windowX + this.labelOffsets.x, windowY + this.labelOffsets.y);
   }
   
@@ -82,27 +90,25 @@ class Fish {
   }
 }
 
-const fishies = [
-  new Fish({label: '.append()'}),
-  new Fish({label: '.children()'}),
-  new Fish({label: '.siblings()'}),
-  new Fish({label: '.first()'}),
-  new Fish({label: '.parent()'}),
-  new Fish({label: '.remove()'}),
-  new Fish({label: '.ready()'}),
-]
-
-function 
-
 function setup() {
   frameRate(FRAMERATE)
   createCanvas(windowWidth, windowHeight)
   textSize(18)
+  
+  fishies = [
+    new Fish({label: '.append()', imageFacing: 'right'}),
+    //new Fish({label: '.children()'}),
+    //new Fish({label: '.siblings()'}),
+    //new Fish({label: '.first()'}),
+    //new Fish({label: '.parent()'}),
+    //new Fish({label: '.remove()'}),
+    //new Fish({label: '.ready()'}),
+  ]
 }
 
 function preload() {
-  img = loadImage(FISH_IMG_LEFT)
-  img.loadPixels()
+  imgLeft = loadImage(FISH_IMG_LEFT)
+  imgRight = loadImage(FISH_IMG_RIGHT)
 }
 
 function draw() {
