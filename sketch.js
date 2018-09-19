@@ -22,12 +22,12 @@ const FISH_IMG = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2F
 let img;
 
 class Fish {
-  constructor(text) {
+  constructor({label}) {
     this.location = { x: Math.random(), y: Math.random() }
     this.speed = 15 + (Math.random() * 15)
     this.currentShoop = null
     this.img = img
-    this.text = text
+    this.text = label
   }
   
   draw() {
@@ -71,7 +71,7 @@ class Fish {
 }
 
 const fishies = [
-  new Fish({label: '.append()'}),
+  new Fish({label: '.append()', labelXOffset: 80, labelYOffset: 55}),
   new Fish({label: '.children()'}),
   new Fish({label: '.first()'}),
 ]
