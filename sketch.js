@@ -37,14 +37,27 @@ class Fish {
     this.speed = 15 + (Math.random() * 15)
     this.currentShoop = null
     this.label = label
+    this.fishType = fishType || 'spikey'
 
-    if(fishType === 'bloop') {
-      this.img = bloop
+    if(this.fishType === 'bloop') {
+      this.img = bloopFishImgLeft
+    }
+    else {
+      this.img = spikeyFishImgLeft
+    }
+    
+    //lol...
+    if(this.fishType === 'bloop') {
+      this.labelOffsets = {
+        x: 30,
+        y: 70
       }
-    this.img = spikeyFishImgLeft
-    this.labelOffsets = {
-      x: 68,
-      y: 55
+    }
+    else if (this.fishType === 'spikey') {
+      this.labelOffsets = {
+        x: 68,
+        y: 55
+      }
     }
   }
   
@@ -92,20 +105,30 @@ class Fish {
     if (this.currentShoop.x > this.location.x) {
       if(this.direction != 'right') {
         this.direction = 'right'
-        this.img = spikeyFishImgRight
+        //Lol need to tidy the code soon naughty
+        if(this.fishType === 'spikey') {
+          this.img = spikeyFishImgRight
+        }
+        else if(this.fishType === 'bloop') {
+          this.img = bloopFishImgRight
+        }
       }
     }
     else {
       if(this.direction != 'left') {
         this.direction = 'left'
-        this.img = spikeyFishImgLeft
+          if(this.fishType === 'spikey') {
+          this.img = spikeyFishImgLeft
+        }
+        else if(this.fishType === 'bloop') {
+          this.img = bloopFishImgLeft
+        }
       }
     }
     
     if (reachesTarget) { 
       this.currentShoop = null 
     }
-    console.log(this.direction)
   }
 }
 
@@ -115,12 +138,12 @@ function setup() {
   textSize(18)
   
   fishies = [
-    new Fish({label: '.append()', imageFacing: 'right'}),
-    new Fish({label: '.children()'}),
-    new Fish({label: '.siblings()'}),
-    new Fish({label: '.first()'}),
-    new Fish({label: '.parent()'}),
-    new Fish({label: '.remove()'}),
+    //new Fish({label: '.append()', imageFacing: 'right'}),
+    //new Fish({label: '.children()'}),
+    //new Fish({label: '.siblings()'}),
+    //new Fish({label: '.first()'}),
+    //new Fish({label: '.parent()'}),
+    //new Fish({label: '.remove()'}),
     new Fish({label: '.ready()', fishType: 'bloop'}),
   ]
 }
@@ -129,7 +152,7 @@ function preload() {
   spikeyFishImgLeft = loadImage(SPIKEY_FISH_IMG_LEFT)
   spikeyFishImgRight = loadImage(SPIKEY_FISH_IMG_RIGHT)
   bloopFishImgLeft = loadImage(BLOOP_FISH_IMG_LEFT)
-  bloopFishImgRight = loadImage(SPIKEY_FISH_IMG_RIGHT)
+  bloopFishImgRight = loadImage(BLOOP_FISH_IMG_RIGHT)
 }
 
 function draw() {
