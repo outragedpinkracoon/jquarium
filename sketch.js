@@ -21,14 +21,15 @@
 const FRAMERATE = 30
 const FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_left.png?1537361637478'
 const FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_right.png?1537361637621'
-let img;
+let imgLeft;
+let imgRight;
 
 class Fish {
   constructor({label, labelXOffset, labelYOffset}) {
     this.location = { x: Math.random(), y: Math.random() }
     this.speed = 15 + (Math.random() * 15)
     this.currentShoop = null
-    this.img = img
+    this.img = imgLeft
     this.label = label
     this.labelOffsets = {
       x: 68,
@@ -40,7 +41,7 @@ class Fish {
     const { x, y } = this.location
     const windowX = x * windowWidth
     const windowY = y * windowHeight
-    image(img, windowX, windowY)
+    image(this.img, windowX, windowY)
     text(this.label, windowX + this.labelOffsets.x, windowY + this.labelOffsets.y);
   }
   
@@ -79,24 +80,26 @@ class Fish {
     
     if (reachesTarget) { 
       this.currentShoop = null 
+      this.img = imgRight
     }
   }
 }
 
 const fishies = [
-  new Fish({label: '.append()', labelXOffset: 68}),
-  new Fish({label: '.children()', labelXOffset: 68}),
-  new Fish({label: '.siblings()', labelXOffset: 68}),
-  new Fish({label: '.first()', labelXOffset: 85}),
-  new Fish({label: '.parent()', labelXOffset: 80}),
-  new Fish({label: '.remove()', labelXOffset: 80}),
-  new Fish({label: '.ready()', labelXOffset: 80}),
+  new Fish({label: '.append()'}),
+  new Fish({label: '.children()'}),
+  new Fish({label: '.siblings()'}),
+  new Fish({label: '.first()'}),
+  new Fish({label: '.parent()'}),
+  new Fish({label: '.remove()'}),
+  new Fish({label: '.ready()'}),
 ]
 
 function setup() {
   frameRate(FRAMERATE)
   createCanvas(windowWidth, windowHeight)
-  img = loadImage(FISH_IMG_LEFT)
+  imgLeft = loadImage(FISH_IMG_LEFT)
+  imgRight = loadImage(FISH_IMG_RIGHT)
   textSize(18)
 }
 
