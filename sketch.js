@@ -35,38 +35,12 @@ let fishHouse
 
 let fishies
 
-class BloopFish extends Fish {
-  this.labelOffsets = {
-    x: 68,
-    y: 55
-  }
-}
-
 class Fish {
   constructor({label, fishType}) {
     this.location = { x: Math.random(), y: Math.random() }
     this.speed = 15 + (Math.random() * 15)
     this.currentShoop = null
     this.label = label
-    this.fishType = fishType || 'spikey'
-
-    if(this.fishType === 'bloop') {
-      this.img = bloopFishImgLeft
-    }
-    else {
-      this.img = spikeyFishImgLeft
-    }
-    
-    //lol...
-    if(this.fishType === 'bloop') {
-      this.labelOffsets = {
-        x: 62,
-        y: 88
-      }
-    }
-    else if (this.fishType === 'spikey') {
-      
-    }
   }
   
   draw() {
@@ -112,25 +86,12 @@ class Fish {
     
     if (this.currentShoop.x > this.location.x) {
       if(this.direction != 'right') {
-        this.direction = 'right'
-        //Lol need to tidy the code soon naughty
-        if(this.fishType === 'spikey') {
-          this.img = spikeyFishImgRight
-        }
-        else if(this.fishType === 'bloop') {
-          this.img = bloopFishImgRight
-        }
+        this.faceRight()
       }
     }
     else {
       if(this.direction != 'left') {
-        this.direction = 'left'
-          if(this.fishType === 'spikey') {
-          this.img = spikeyFishImgLeft
-        }
-        else if(this.fishType === 'bloop') {
-          this.img = bloopFishImgLeft
-        }
+        this.faceLeft()
       }
     }
     
@@ -140,19 +101,47 @@ class Fish {
   }
 }
 
+class BloopFish extends Fish {
+  constructor(params) {
+    super(params)
+    this.labelOffsets = {
+      x: 68,
+      y: 55
+    }
+    this.img = bloopFishImgLeft
+  }
+  
+  faceLeft(){
+    thi
+  }
+}
+
+class SpikeyFish extends Fish {
+  constructor(params) {
+    super(params)
+    this.fishType = 'spikey'
+    this.labelOffsets = {
+      x: 68,
+      y: 55
+    }
+    this.img = spikeyFishImgLeft
+  }
+}
+
+
 function setup() {
   frameRate(FRAMERATE)
   createCanvas(windowWidth, windowHeight)
   textSize(18)
   
   fishies = [
-    new Fish({label: '.append()', imageFacing: 'right'}),
-    new Fish({label: '.children()'}),
-    new Fish({label: '.siblings()'}),
-    new Fish({label: '.first()'}),
-    new Fish({label: '.parent()'}),
-    new Fish({label: '.remove()'}),
-    new Fish({label: '.ready()', fishType: 'bloop'}),
+    new SpikeyFish({label: '.append()'}),
+    new SpikeyFish({label: '.children()'}),
+    new SpikeyFish({label: '.siblings()'}),
+    new SpikeyFish({label: '.first()'}),
+    new SpikeyFish({label: '.parent()'}),
+    new SpikeyFish({label: '.remove()'}),
+    new BloopFish({label: '.ready()'}),
   ]
 }
 
