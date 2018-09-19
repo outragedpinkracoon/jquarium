@@ -49,7 +49,7 @@ class Fish {
     //lol...
     if(this.fishType === 'bloop') {
       this.labelOffsets = {
-        x: 68,
+        x: 62,
         y: 88
       }
     }
