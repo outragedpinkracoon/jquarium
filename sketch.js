@@ -21,7 +21,6 @@
 const FRAMERATE = 30
 const SPIKEY_FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fspikey_fish_left.png?1537366510608'
 const SPIKEY_FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fspikey_fish_right.png?1537366509017'
-
 const BLOOP_FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fbloop_fish_left.png?1537367764866'
 const BLOOP_FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Fbloop_fish_right.png?1537367762540'
 
@@ -31,6 +30,7 @@ let spikeyFishImgLeft
 let spikeyFishImgRight
 let bloopFishImgLeft
 let bloopFishImgRight
+
 let fishHouse
 
 let fishies
@@ -85,19 +85,27 @@ class Fish {
     }
     
     if (this.currentShoop.x > this.location.x) {
-      if(this.direction != 'right') {
-        this.faceRight()
-      }
+      this.faceRight()
     }
     else {
-      if(this.direction != 'left') {
-        this.faceLeft()
-      }
+      this.faceLeft()
     }
     
     if (reachesTarget) { 
       this.currentShoop = null 
     }
+  }
+  
+  faceLeft(){
+    if(this.direction == 'left') return
+    this.direction = 'left'
+    this.img = this.leftImg
+  }
+  
+  faceRight(){
+    if(this.direction == 'right') return
+    this.direction = 'right'
+    this.img = this.rightImg
   }
 }
 
@@ -105,15 +113,14 @@ class BloopFish extends Fish {
   constructor(params) {
     super(params)
     this.labelOffsets = {
-      x: 68,
-      y: 55
+      x: 62,
+      y: 85
     }
-    this.img = bloopFishImgLeft
+    this.rightImg = bloopFishImgRight
+    this.leftImg = bloopFishImgLeft
+    this.img = this.leftImg
   }
-  
-  faceLeft(){
-    thi
-  }
+
 }
 
 class SpikeyFish extends Fish {
@@ -124,7 +131,9 @@ class SpikeyFish extends Fish {
       x: 68,
       y: 55
     }
-    this.img = spikeyFishImgLeft
+    this.rightImg = spikeyFishImgRight
+    this.leftImg = spikeyFishImgLeft
+    this.img = this.leftImg
   }
 }
 
