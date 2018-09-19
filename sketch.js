@@ -14,7 +14,8 @@
   loadImage,
   image,
   text,
-  textSize
+  textSize,
+  rotate
  */
 
 const FRAMERATE = 30
@@ -30,8 +31,8 @@ class Fish {
     this.img = img
     this.label = label
     this.labelOffsets = {
-      x: labelXOffset,
-      y: labelYOffset || 55
+      x: 68,
+      y: 55
     }
   }
   
@@ -78,7 +79,6 @@ class Fish {
     
     if (reachesTarget) { 
       this.currentShoop = null 
-      img = FISH_IMG_RIGHT
     }
   }
 }
