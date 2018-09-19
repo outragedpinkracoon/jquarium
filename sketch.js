@@ -32,7 +32,6 @@ let bloopFishImgLeft
 let bloopFishImgRight
 
 let fishHouse
-
 let fishies
 
 class Fish {

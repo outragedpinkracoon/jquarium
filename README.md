@@ -1,6 +1,6 @@
-# p5-base-project
+# jquarium
 
-`p5-base-project` aims to be the minimal remixable project to get you up and running with p5.js.
+Ever wonder what JQuery methods do when you're not using them? Now
 
 ## What's included?
 
