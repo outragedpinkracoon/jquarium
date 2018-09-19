@@ -18,7 +18,7 @@
  */
 
 const FRAMERATE = 30
-const FISH_IMG = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_append.png?1537358980574'
+const FISH_IMG = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_append_left.png?1537360709975'
 let img;
 
 class Fish {
@@ -30,7 +30,7 @@ class Fish {
     this.label = label
     this.labelOffsets = {
       x: labelXOffset,
-      y: labelYOffset
+      y: labelYOffset || 55
     }
   }
   
@@ -80,9 +80,13 @@ class Fish {
 }
 
 const fishies = [
-  new Fish({label: '.append()', labelXOffset: 68, labelYOffset: 55}),
-  new Fish({label: '.children()', labelXOffset: 68, labelYOffset: 55}),
-  new Fish({label: '.first()', labelXOffset: 85, labelYOffset: 55}),
+  new Fish({label: '.append()', labelXOffset: 68}),
+  new Fish({label: '.children()', labelXOffset: 68}),
+  new Fish({label: '.siblings()', labelXOffset: 68}),
+  new Fish({label: '.first()', labelXOffset: 85}),
+  new Fish({label: '.parent()', labelXOffset: 80}),
+  new Fish({label: '.remove()', labelXOffset: 80}),
+  new Fish({label: '.ready()', labelXOffset: 80}),
 ]
 
 function setup() {
