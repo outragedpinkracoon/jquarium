@@ -35,6 +35,13 @@ let fishHouse
 
 let fishies
 
+class BloopFish extends Fish {
+  this.labelOffsets = {
+    x: 68,
+    y: 55
+  }
+}
+
 class Fish {
   constructor({label, fishType}) {
     this.location = { x: Math.random(), y: Math.random() }
@@ -58,10 +65,7 @@ class Fish {
       }
     }
     else if (this.fishType === 'spikey') {
-      this.labelOffsets = {
-        x: 68,
-        y: 55
-      }
+      
     }
   }
   
@@ -150,7 +154,6 @@ function setup() {
     new Fish({label: '.remove()'}),
     new Fish({label: '.ready()', fishType: 'bloop'}),
   ]
-  image(fishHouse, 200,500)
 }
 
 function preload() {
@@ -164,6 +167,7 @@ function preload() {
 
 function draw() {
   drawBackground()
+  image(fishHouse, windowWidth - fishHouse.width, windowHeight - fishHouse.height)
   fishies.forEach(f => f.update())
   fishies.forEach(f => f.draw())
 }
