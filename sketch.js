@@ -18,15 +18,16 @@
  */
 
 const FRAMERATE = 30
-const FISH_IMG = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_append.png?1537354892527'
+const FISH_IMG = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_append.png?1537357613225'
 let img;
 
 class Fish {
-  constructor() {
+  constructor(text) {
     this.location = { x: Math.random(), y: Math.random() }
     this.speed = 15 + (Math.random() * 15)
     this.currentShoop = null
     this.img = img
+    this.text = text
   }
   
   draw() {
@@ -34,7 +35,9 @@ class Fish {
     const windowX = x * windowWidth
     const windowY = y * windowHeight
     image(img, windowX, windowY)
-    text('append()', windowX + 120, windowY + 50);
+    const moveRightBy = 80
+    const moveUpBy = 55
+    text(this.text, windowX + moveRightBy, windowY + moveUpBy);
   }
   
   update() {
@@ -68,16 +71,16 @@ class Fish {
 }
 
 const fishies = [
-  new Fish(),
-  new Fish(),
-  new Fish(),
+  new Fish('.append()'),
+  new Fish('.children()'),
+  new Fish('.first()'),
 ]
 
 function setup() {
   frameRate(FRAMERATE)
   createCanvas(windowWidth, windowHeight)
   img = loadImage(FISH_IMG)
-  textSize(14);
+  textSize(18);
 }
 
 function draw() {
