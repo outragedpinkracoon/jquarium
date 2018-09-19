@@ -18,7 +18,8 @@
  */
 
 const FRAMERATE = 30
-const FISH_IMG = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_append_left.png?1537360709975'
+const FISH_IMG_LEFT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_left.png?1537361637478'
+const FISH_IMG_RIGHT = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_right.png?1537361637621'
 let img;
 
 class Fish {
@@ -75,7 +76,10 @@ class Fish {
       y: this.location.y + ((deltaNorm.y * distToMove) / windowHeight),
     }
     
-    if (reachesTarget) { this.currentShoop = null }
+    if (reachesTarget) { 
+      this.currentShoop = null 
+      img = FISH_IMG_RIGHT
+    }
   }
 }
 
@@ -92,7 +96,7 @@ const fishies = [
 function setup() {
   frameRate(FRAMERATE)
   createCanvas(windowWidth, windowHeight)
-  img = loadImage(FISH_IMG)
+  img = loadImage(FISH_IMG_LEFT)
   textSize(18)
 }
 
