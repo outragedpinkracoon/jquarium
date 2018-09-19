@@ -1,19 +1,7 @@
 # jquarium
 
-Ever wonder what JQuery methods do when you're not using them? Now
+Ever wonder what JQuery methods do when you're not using them? Now you know.
 
-## What's included?
+![screenshot of app](https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2FScreenshot%202018-09-19%2016.50.46.png?1537372271140)
 
-You get a simple, almost-empty (except for the Glitch button) full-page p5 canvas thanks to
-`index.html` and `style.css`.
-
-`sketch.js` is where you put your p5.js code. As a demo, all it does is draw a circle in the
-middle of the screen. The p5 world is your oyster!
-
-## How do I start?
-
-Make changes to `sketch.js`. There are stubs for `setup()` and `draw()`
-there ready for you.
-
-If you want more [p5 libraries](https://p5js.org/libraries/), go ahead and add
-a line for them in `index.html`.
+Based on the [p5 base starter](https://p5-base-project.glitch.me/) by [Jack Preston](https://github.com/unwitting)
