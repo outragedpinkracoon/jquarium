@@ -11,9 +11,12 @@
   windowWidth,
   windowHeight,
   frameRate,
+  loadImage,
+  image
  */
 
 const FRAMERATE = 30
+const FISH_IMG = 'https://cdn.glitch.com/ea138267-ba1b-4761-b329-d6c4b9e742ee%2Ffish_append.png?1537354892527'
 
 class Fish {
   constructor() {
@@ -27,6 +30,7 @@ class Fish {
     const { x, y } = this.location
     const windowX = x * windowWidth
     const windowY = y * windowHeight
+    image(this.fishy, windowX, windowY, this.size, this.size)
     ellipse(windowX, windowY, this.size, this.size)
   }
   
