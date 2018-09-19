@@ -26,17 +26,14 @@ let imgRight
 let fishies
 
 class Fish {
-  constructor({label, imageFacing, labelXOffset, labelYOffset}) {
+  constructor({label}) {
     this.location = { x: Math.random(), y: Math.random() }
     this.speed = 15 + (Math.random() * 15)
     this.currentShoop = null
     this.label = label
-    if(imageFacing === 'left' || !imageFacing) {
-      this.img = imgLeft
-    }
-    else if(imageFacing === 'right') {
-      this.img = imgRight
-    }
+    this.direction = null
+    this.img = imgLeft
+    
     this.labelOffsets = {
       x: 68,
       y: 55
@@ -84,9 +81,23 @@ class Fish {
       y: this.location.y + ((deltaNorm.y * distToMove) / windowHeight),
     }
     
+    if (this.currentShoop.x > this.location.x) {
+      if(this.direction != 'right') {
+        this.direction = 'right'
+        this.img = imgRight
+      }
+    }
+    else {
+      if(this.direction != 'right') {
+        this.direction = 'left'
+        this.img = imgLeft
+      }
+    }
+    
     if (reachesTarget) { 
       this.currentShoop = null 
     }
+    console.log(this.direction)
   }
 }
 
@@ -97,12 +108,12 @@ function setup() {
   
   fishies = [
     new Fish({label: '.append()', imageFacing: 'right'}),
-    //new Fish({label: '.children()'}),
-    //new Fish({label: '.siblings()'}),
-    //new Fish({label: '.first()'}),
-    //new Fish({label: '.parent()'}),
-    //new Fish({label: '.remove()'}),
-    //new Fish({label: '.ready()'}),
+    new Fish({label: '.children()'}),
+    new Fish({label: '.siblings()'}),
+    new Fish({label: '.first()'}),
+    new Fish({label: '.parent()'}),
+    new Fish({label: '.remove()'}),
+    new Fish({label: '.ready()'}),
   ]
 }
 
